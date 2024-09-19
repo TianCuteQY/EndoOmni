@@ -103,8 +103,8 @@ To set up the Python environment:
 To download the pretrained model weights:
 
 1. Download the pretrained weights from the following links:
-   - **EndoOmni for Scale and Shift Ambiguous Depth Estimation**: [Download Link](https://pan.cstcloud.cn/s/W57OC5UFTbc)
-   - **EndoOmni for Scale Ambiguous Depth Estimation**: [Download Link](https://pan.cstcloud.cn/s/k1Q8wZGtTeg)
+   - **EndoOmni for Scale and Shift Ambiguous Depth Estimation (foundation model base)**: [OneDrive](https://1drv.ms/u/s!Aozr9qEFW2ahhSpbO0wKJNGjS51j?e=3MunDF) or [CSTCloud](https://pan.cstcloud.cn/s/W57OC5UFTbc)
+   - **EndoOmni for Scale Ambiguous Depth Estimation (fine-tuned)**: [OneDrive](https://1drv.ms/u/s!Aozr9qEFW2ahhSu2h7mmWrUXMrrJ?e=VDtPlO) or [CSTCloud](https://pan.cstcloud.cn/s/k1Q8wZGtTeg)
 
 2. Place the downloaded weights in a directory and note the paths.
 
