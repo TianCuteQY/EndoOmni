@@ -116,7 +116,6 @@ my_torch_filestore
 
 *.png
 *.pfm
-*.jpg
 *.jpeg
 *.pt
 *.pth
