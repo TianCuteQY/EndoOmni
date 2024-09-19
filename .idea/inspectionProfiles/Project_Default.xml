@@ -1,0 +1,47 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyChainedComparisonsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoreConstantInTheMiddle" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="21">
+            <item index="0" class="java.lang.String" itemvalue="timm" />
+            <item index="1" class="java.lang.String" itemvalue="opencv-contrib-python" />
+            <item index="2" class="java.lang.String" itemvalue="blinker" />
+            <item index="3" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="4" class="java.lang.String" itemvalue="tqdm" />
+            <item index="5" class="java.lang.String" itemvalue="scipy" />
+            <item index="6" class="java.lang.String" itemvalue="matplotlib" />
+            <item index="7" class="java.lang.String" itemvalue="wandb" />
+            <item index="8" class="java.lang.String" itemvalue="torch" />
+            <item index="9" class="java.lang.String" itemvalue="numpy" />
+            <item index="10" class="java.lang.String" itemvalue="einops" />
+            <item index="11" class="java.lang.String" itemvalue="torchvision" />
+            <item index="12" class="java.lang.String" itemvalue="opencv_python" />
+            <item index="13" class="java.lang.String" itemvalue="Pillow" />
+            <item index="14" class="java.lang.String" itemvalue="opencv-python" />
+            <item index="15" class="java.lang.String" itemvalue="gradio" />
+            <item index="16" class="java.lang.String" itemvalue="gradio_imageslider" />
+            <item index="17" class="java.lang.String" itemvalue="kornia" />
+            <item index="18" class="java.lang.String" itemvalue="protobuf" />
+            <item index="19" class="java.lang.String" itemvalue="brotlipy" />
+            <item index="20" class="java.lang.String" itemvalue="huggingface-hub" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N801" />
+          <option value="N802" />
+          <option value="N806" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
