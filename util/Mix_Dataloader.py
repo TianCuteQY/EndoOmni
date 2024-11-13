@@ -19,85 +19,85 @@ from util.Dataset_ExpNoise import get_ExpNoise_loader
 DATASETS_CONFIG = {
     "tqy_endo": {
         "dataset": "tqy_endo",
-        "root": "/mnt/data/tqy/BDL-V/",
+        "root": "/data0/tqy/BDL-V/",
     },
     "tqy_v": {
         "dataset": "tqy_v",
-        "root": "/mnt/data/tqy/BDL-V/",
+        "root": "/data0/tqy/BDL-V/",
     },
     "C3VD": {
         "dataset": "C3VD",
-        "root": "/mnt/data/tqy/C3VD/",
+        "root": "/data0/tqy/C3VD/",
     },
     "EndoAbs": {
         "dataset": "EndoAbs",
-        "root": "/mnt/data/tqy/EndoAbS_dataset/",
+        "root": "/data0/tqy/EndoAbS_dataset/",
     },
     "Hamlyn": {
         "dataset": "Hamlyn",
-        "root": "/mnt/data/tqy/hamlyn_data/",
+        "root": "/data0/tqy/hamlyn_data/",
     },
     "SCARED": {
         "dataset": "SCARED",
-        "root": "/mnt/data/tqy/SCARED/out/",
+        "root": "/data0/tqy/SCARED/out/",
     },
     "SERV-CT": {
         "dataset": "SERV-CT",
-        "root": "/mnt/data/tqy/SERV-CT/"
+        "root": "/data0/tqy/SERV-CT/"
     },
     "SimColon": {
         "dataset": "SimColon",
-        "root": "/mnt/data/tqy/SimColonDepth/"
+        "root": "/data0/tqy/SimColonDepth/"
     },
     "EndoMapper-Sim": {
         "dataset": "EndoMapper-Sim",
-        "root": "/mnt/data/tqy/EndoMapper/Simulated Sequences/"
+        "root": "/data0/tqy/EndoMapper/Simulated Sequences/"
     },
     "EndoSLAM-Sim": {
         "dataset": "EndoSLAM-Sim",
-        "root": "/mnt/data/tqy/EndoSLAM/UnityCam"
+        "root": "/data0/tqy/EndoSLAM/UnityCam"
     },
     "CholecT50": {
         "dataset": "CholecT50",
-        "root": "/mnt/data/tqy/CholecT50/"
+        "root": "/data0/tqy/CholecT50/"
     },
     "EndoMapper": {
         "dataset": "EndoMapper",
-        "root": "/mnt/data/tqy/EndoMapper/"
+        "root": "/data0/tqy/EndoMapper/"
     },
     "CVC-ClinicDB": {
         "dataset": "CVC-ClinicDB",
-        "root": "/mnt/data/tqy/CVC-ClinicDB/"
+        "root": "/data0/tqy/CVC-ClinicDB/"
     },
     "EAD2020": {
         "dataset": "EAD2020",
-        "root": "/mnt/data/tqy/EAD Dataset/EAD2020_train/allDetection_training/bbox_images/",
+        "root": "/data0/tqy/EAD Dataset/EAD2020_train/allDetection_training/bbox_images/",
     },
     "ROBUST-MIS": {
         "dataset": "ROBUST-MIS",
-        "root": "/mnt/data/tqy/ROBUST-MIS/Raw Data/"
+        "root": "/data0/tqy/ROBUST-MIS/Raw Data/"
     },
     "EndoSLAM": {
         "dataset": "EndoSLAM",
-        "root": "/mnt/data/tqy/EndoSLAM/Cameras/"
+        "root": "/data0/tqy/EndoSLAM/Cameras/"
     },
     "Surgical-Vis": {
         "dataset": "Surgical-Vis",
-        "root": "/mnt/data/tqy/SurgVisdom/surgvisdom_dataset/train/Porcine/frames/"
+        "root": "/data0/tqy/SurgVisdom/surgvisdom_dataset/train/Porcine/frames/"
     },
     "BronchoTest":
     {   
         "dataset": "BronchoTest",
-        "root": "/mnt/data/tqy/BronchoTest/"
+        "root": "/data0/tqy/BronchoTest/"
     },
     "PhantomTest":
     {   
         "dataset": "PhantomTest",
-        "root": "/mnt/data/tqy/PhantomTest/"
+        "root": "/data0/tqy/PhantomTest/"
     },
     "ExpNoise": {
         "dataset": "ExpNoise",
-        "root": "/mnt/data/tqy/Exp_NoisyLabels/"
+        "root": "/data0/tqy/Exp_NoisyLabels/"
     },
 }
 

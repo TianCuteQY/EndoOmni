@@ -149,15 +149,24 @@ class DPT_DINOv2(nn.Module):
                  use_bn=False, use_clstoken=False, localhub=True, **kwargs):
         super(DPT_DINOv2, self).__init__()
         
+        encoder = kwargs["encoder"] if "encoder" in kwargs else encoder
         assert encoder in ['vits', 'vitb', 'vitl']
+        print("Student Model Encoder Type:", encoder)
+        
+        if encoder == "vits":
+            out_channels = [48, 96, 192, 384]
+            features=64
+        elif encoder == "vitb":
+            features = 128
+            out_channels = [96, 192, 384, 768]
         
         # in case the Internet connection is not stable, please load the DINOv2 locally
         if localhub:
-            self.pretrained = torch.hub.load('/mnt/data/tqy/cache/hub/facebookresearch_dinov2_main', 'dinov2_{:}14'.format(encoder),
+            self.pretrained = torch.hub.load('./models/facebookresearch_dinov2_main', 'dinov2_{:}14'.format(encoder),
                                              source='local', pretrained=False)
         else:
             self.pretrained = torch.hub.load('facebookresearch/dinov2', 'dinov2_{:}14'.format(encoder))
-        
+            
         dim = self.pretrained.blocks[0].attn.qkv.in_features
         
         self.depth_head = DPTHead(1, dim, features, use_bn, out_channels=out_channels, use_clstoken=use_clstoken)

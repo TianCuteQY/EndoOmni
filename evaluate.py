@@ -2,20 +2,12 @@ import json
 import argparse
 import torch
 from tqdm import tqdm
-import os
-import sys
-import time
 import cv2
 import numpy as np
-from util.misc import (RunningAverageDict, colors, compute_metrics, AffineRescale,
-                       count_parameters)
-from util.Mix_Dataloader import get_mixed_loader, DepthDataLoader, DATASETS_CONFIG
-from metric_depth_.zoedepth.data.preprocess import get_black_border
-from PIL import Image
-from torchvision import transforms
+from util.Mix_Dataloader import DepthDataLoader, DATASETS_CONFIG
 from models.depth_anything.dpt import DepthAnything
 
-def get_model(model_path, model_type="dpt_hybrid", device="cuda:0", load_backbone=False, **kwargs):
+def get_model(model_path, model_type="dpt_hybrid", device="cuda:0", **kwargs):
     if model_type == "DPT_DINOv2":
         model = DepthAnything(**kwargs)
         if model_path is not None:
@@ -23,8 +15,6 @@ def get_model(model_path, model_type="dpt_hybrid", device="cuda:0", load_backbon
                 model.load_state_dict(torch.load(model_path, map_location=torch.device(device))['model'])
             except:
                 model.load_state_dict(torch.load(model_path, map_location=torch.device(device)))
-        if load_backbone:
-            model.initialize_head_weights()
     else:
         assert (
             False
@@ -68,10 +58,9 @@ def infer(model, images):
     return pred1
 
 @torch.no_grad()
-def evaluate(model, test_loader, config, round_vals=True, round_precision=3):
+def evaluate(model, test_loader, config, MAX_SCALE=150):
     ratios = []
     errors = []
-    rescale = AffineRescale(depth_cap=config.max_depth)
 
     for sample in tqdm(test_loader, total=len(test_loader)):
         image, depth = sample['image'], sample['depth'].squeeze()
@@ -80,11 +69,9 @@ def evaluate(model, test_loader, config, round_vals=True, round_precision=3):
         pred_disp = infer(model, image).squeeze().cpu().numpy()
         gt_height, gt_width = depth.shape[-2], depth.shape[-1]
         pred_disp = cv2.resize(pred_disp, (gt_width, gt_height))
-        mask = np.logical_and(depth > 1, depth < 100)
+        mask = np.logical_and(depth > 1, depth < MAX_SCALE)
 
-        if config.scaling == "affine":
-            pred = rescale(pred_disp, 1 / (depth + 1e-8), mask).squeeze().numpy()
-        elif config.scaling == "median":
+        if config.scaling == "median":
             pred = 1 / (pred_disp + 1e-8)
             ratio = np.median(depth[mask]) / np.median(pred[mask])
             if not np.isnan(ratio).all():
@@ -97,7 +84,7 @@ def evaluate(model, test_loader, config, round_vals=True, round_precision=3):
         depth = depth[mask]
 
         pred[pred < 1] = 1
-        pred[pred > 100] = 100
+        pred[pred > MAX_SCALE] = MAX_SCALE
         error = compute_errors(depth, pred)
         if not np.isnan(error).all():
             errors.append(error)
@@ -106,7 +93,9 @@ def evaluate(model, test_loader, config, round_vals=True, round_precision=3):
     errors = np.array(errors)
     mean_errors = np.mean(errors, axis=0)
 
+    mean_errors = np.mean(errors, axis=0)
     print("\n       " + ("{:>11}      | " * 7).format("abs_rel", "sq_rel", "rmse", "rmse_log", "a1", "a2", "a3"))
+    print("mean:" + ("&{: 12.3f}      " * 7).format(*mean_errors.tolist()) + "\\\\")
     print("\n-> Done!")
 
 def main(args):
@@ -120,7 +109,7 @@ def main(args):
     config.scaling = args.scaling
     config.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    model = get_model(config.model_weights, config.model_type, config.gpu)
+    model = get_model(config.model_weights, config.model_type, config.gpu, encoder=args.backbone)
     model.to(config.device)
     model.eval()
 
@@ -132,7 +121,8 @@ if __name__ == '__main__':
     parser.add_argument('--config', type=str, default="./config.json", required=True, help='Path to the config JSON file')
     parser.add_argument('--model_weights', type=str, required=True, help='Path to the model weights file')
     parser.add_argument('--dataset', type=str, required=True, help='Dataset name for evaluation')
-    parser.add_argument('--scaling', type=str, default="affine", choices=["affine", "median"], help='Scaling method to use for depth prediction')
+    parser.add_argument('--scaling', type=str, default="median", help='Scaling method to use for depth prediction')
+    parser.add_argument('--backbone', type=str, default="vitb", help='Backbone of EndoOmni')
     args = parser.parse_args()
 
     main(args)

@@ -17,33 +17,35 @@ This repository provides the code for the paper "[EndoOmni: Zero-Shot Cross-Data
 ## Results
 
 ### Zero-shot RDE on Hamlyn Dataset
-| **Method**                     | **AbsRel ↓** | **SqRel ↓** | **RMSE ↓** | **RMSElog ↓** | **δ 1 ↑** |
-|-------------------------------|--------------|-------------|------------|---------------|------------|
-| **EDM***                      | 0.185        | 5.424       | 16.100     | 0.255         | 0.732      |
-| **AF-SfMLearner***†           | 0.168        | 4.44        | 13.87      | 0.204         | 0.77       |
-| **Surgical-DINO***            | 0.146        | 3.216       | 11.974     | 0.178         | 0.801      |
-| **EndoDAC***                  | 0.138        | 2.796       | 11.491     | 0.171         | 0.813      |
-| **Depth-Anything***           | 0.174        | 3.829       | 13.226     | 0.210         | 0.750      |
-| **Depth-Anything2***          | 0.229        | 5.949       | 16.718     | 0.269         | 0.649      |
-| **Ours***                     | _0.135_      | _2.467_     | _10.277_   | _0.167_       | _0.826_    |
-| **Ours△**                     | **0.097**    | **1.286**   | **7.687**  | **0.123**     | **0.875**  |
+| **Method**                       | **AbsRel↓** | **SqRel↓** | **RMSE↓** | **RMSElog↓** | **δ1↑** |
+|----------------------------------|-------------|------------|-----------|--------------|----------|
+| **EDM**   | 0.185       | 5.424      | 16.100    | 0.255        | 0.732    |
+| **AF-SfMLearner**  | 0.168 | 4.440 | 13.870 | 0.204 | 0.770 |
+| **Surgical-DINO**  | 0.146 | 3.216 | 11.974 | 0.178 | 0.801 |
+| **EndoDAC**     | 0.138       | 2.796      | 11.491    | 0.171        | 0.813    |
+| **IID-SfmLearner**  | 0.157 | 2.995 | 11.621 | 0.192 | 0.776 |
+| **DepthAnything-L**  | 0.174  | 3.829      | 13.226    | 0.210        | 0.750    |
+| **DepthAnything2-L**  | 0.229 | 5.949      | 16.718    | 0.269        | 0.649    |
+| **Ours**                          | **0.125**   | **2.337**  | **10.858**| **0.160**    | **0.827**|
 
 ### Zero-shot RDE on SERV-CT
-| **Method**                     | **AbsRel ↓** | **SqRel ↓** | **RMSE ↓** | **RMSElog ↓** | **δ 1 ↑** |
-|-------------------------------|--------------|-------------|------------|---------------|------------|
-| **SfMLearner***               | 0.151        | 3.917       | 17.451     | 0.191         | 0.779      |
-| **Fang et al.***              | 0.149        | 3.099       | 15.564     | 0.188         | 0.787      |
-| **DeFeat-Net***               | 0.114        | 1.946       | 12.588     | 0.153         | 0.873      |
-| **SC-SfMLearner***            | 0.117        | 2.015       | 12.415     | 0.148         | 0.852      |
-| **Monodepth2***               | 0.123        | 2.205       | 12.927     | 0.152         | 0.856      |
-| **Endo-SfM***                 | 0.116        | 2.014       | 12.493     | 0.143         | 0.864      |
-| **AF-SfMLearner***            | 0.102        | 1.632       | 11.092     | 0.131         | 0.898      |
-| **Depth-Anything***           | 0.080        | 0.906       | 7.212      | 0.098         | 0.928      |
-| **Depth-Anything2***          | 0.130        | 2.125       | 10.578     | 0.160         | 0.818      |
-| **Ours***                     | _0.060_      | _0.445_     | _5.511_    | _0.075_       | _0.988_    |
-| **Ours△**                     | **0.034**    | **0.158**   | **3.316**  | **0.044**     | **1.000**  |
+| **Method**                       | **AbsRel↓** | **SqRel↓** | **RMSE↓** | **RMSElog↓** | **δ1↑** |
+|----------------------------------|-------------|------------|-----------|--------------|----------|
+| **SfMLearner**  | 0.151      | 3.917      | 17.451    | 0.191        | 0.779    |
+| **Fang et al.**  | 0.149      | 3.099      | 15.564    | 0.188        | 0.787    |
+| **DeFeat-Net**  | 0.114     | 1.946      | 12.588    | 0.153        | 0.873    |
+| **SC-SfMLearner**  | 0.117     | 2.015      | 12.415    | 0.148        | 0.852    |
+| **Monodepth2**  | 0.123     | 2.205      | 12.927    | 0.152        | 0.856    |
+| **Endo-SfM**   | 0.116     | 2.014      | 12.493    | 0.143        | 0.864    |
+| **AF-SfMLearner**  | 0.102     | 1.632      | 11.092    | 0.131        | 0.898    |
+| **IID-SfmLearner**  | 0.123 | 1.870 | 10.985 | 0.153 | 0.833 |
+| **MonoPCC**  | 0.091 | 1.252 | 10.059 | 0.116 | 0.915 |
+| **EndoDAC**  | 0.079 | 0.983 | 8.723 | 0.103 | 0.945 |
+| **DepthAnything-L**  | 0.080   | 0.906      | 7.212     | 0.098        | 0.928    |
+| **DepthAnything2-L**  | 0.130  | 2.125      | 10.578    | 0.160        | 0.818    |
+| **Ours**                          | **0.053**   | **0.432**  | **5.922** | **0.070**    | **0.988**|
 
-*Note*: **Best** and _second best_ performances are highlighted. * denotes recovering scale before evaluation. △ denotes recovering scale and shift before evaluation.
+*Note*: **Best** performances are highlighted. All recovered scale before evaluation. Used EndoOmni with ViT-B backbone for this experiment.
 
 ## Dataset Download
 To download the datasets used in this project:
@@ -94,17 +96,12 @@ To set up the Python environment:
     NumPy version: 1.26.4
     ```
 
-3. Install the required Python packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
 ## Pretrained Weights
 To download the pretrained model weights:
 
 1. Download the pretrained weights from the following links:
-   - **EndoOmni for Scale and Shift Ambiguous Depth Estimation (foundation model base)**: [OneDrive](https://1drv.ms/u/s!Aozr9qEFW2ahhSpbO0wKJNGjS51j?e=3MunDF) or [CSTCloud](https://pan.cstcloud.cn/s/W57OC5UFTbc)
-   - **EndoOmni for Scale Ambiguous Depth Estimation (fine-tuned)**: [OneDrive](https://1drv.ms/u/s!Aozr9qEFW2ahhSu2h7mmWrUXMrrJ?e=VDtPlO) or [CSTCloud](https://pan.cstcloud.cn/s/k1Q8wZGtTeg)
+   - **EndoOmni as initialization for finetuning (Scale and Shift Ambiguous Depth Estimation)**: [OneDrive](https://1drv.ms/f/c/a1665b05a1f6eb8c/ElFQzcEHcWJLpF7s4EnZFdwB8Bt9V7hGKPMqEQWA18ECog?e=lwfvtI)
+   - **EndoOmni for comparison with existing methods (Scale Ambiguous Depth Estimation)**: [OneDrive](https://1drv.ms/f/c/a1665b05a1f6eb8c/ErMI4XR-R8tHjmeLchOMQgEBrHjXaab6R_fbTfjs4d2NMA?e=ZyHHY6)
 
 2. Place the downloaded weights in a directory and note the paths.
 
@@ -112,15 +109,11 @@ To download the pretrained model weights:
 To evaluate the model on a specified dataset, run the evaluation script:
 
 ```bash
-python evaluate.py --config config.json --model_weights /path/to/weights.pth --dataset dataset_name
+python evaluate.py --config config.json --model_weights /path/to/weights.pth --dataset dataset_name --backbone vitb --scaling median
 ```
 
-Replace /path/to/weights.pth and dataset_name with the appropriate model weights path and dataset name.
+Replace /path/to/weights.pth and dataset_name with the appropriate model weights path and dataset name. You should use our scale ambiguous version weights for median scaling evaluation.
 
-By default, the evaluation code uses affine scaling. To evaluate EndoOmni pretrained weights with only an ambiguous scale factor, use:
-```bash
-python evaluate.py --config config.json --model_weights /path/to/weights.pth --dataset dataset_name --scaling median
-```
 This will use median scaling for depth evaluation. The results and metrics will be displayed in the terminal upon completion.
 
 ## Citing the Paper
