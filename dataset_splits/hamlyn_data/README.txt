@@ -1,0 +1,3 @@
+Do not include Hamlyn in the config.json file if you want to use our same experiment setting. The util.Dataset_Hamlyn.py (hamlyn dataloader) will load all data and is only for evaluation purpose. Sequence "rectified09" is excluded following Endo-Depth-and-Motion [1].
+
+[1] Recasens, David, et al. "Endo-depth-and-motion: Reconstruction and tracking in endoscopic videos using depth networks and photometric constraints." IEEE Robotics and Automation Letters 6.4 (2021): 7225-7232.
