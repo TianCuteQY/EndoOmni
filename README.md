@@ -116,6 +116,28 @@ Replace /path/to/weights.pth and dataset_name with the appropriate model weights
 
 This will use median scaling for depth evaluation. The results and metrics will be displayed in the terminal upon completion.
 
+## Model Training
+
+EndoOmni features a dual-stage training design.
+
+### 1. Teacher Model Training
+To train the teacher model on fully labeled source data:
+
+1. Open and edit the configuration file: `config_teacher.json`
+2. Execute the teacher training script:
+```bash
+    python train_teacher.py
+```
+
+### 2. Student Model Training
+To train the student model utilizing the teacher's pseudo-labels:
+
+1. Open and edit the configuration file: `config.json` *(Ensure your teacher model paths or flags are properly routed here)*
+2. Execute the student training script:
+```bash
+    python train_student.py
+```
+
 ## Citing the Paper
 If you find this work useful in your research, please cite our paper:
 ```bibtex
@@ -131,6 +153,6 @@ If you find this work useful in your research, please cite our paper:
 This code is based on [Depth Anything](https://github.com/LiheYoung/Depth-Anything), [ZoeDepth](https://github.com/isl-org/ZoeDepth) and [EndoDAC](https://github.com/BeileiCui/EndoDAC). Thanks for their exellent work!
 
 ## Future Updates
-The training code will be released after the paper is accepted. If you have any questions or suggestions, please feel free to contact us at tianqingyao2021@ia.ac.cn. We would be happy to help! 😊
+If you have any questions or suggestions, please feel free to contact us at tianqingyao2021@ia.ac.cn. We would be happy to help! 😊
 
 
